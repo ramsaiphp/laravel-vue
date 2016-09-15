@@ -55,20 +55,20 @@ new Vue({
             this.name = '';
             this.email = '';
             this.password='';
-        }
+        },
 
-/*        deleteUser: function(index) {
+        deleteUser: function(user) {
             if(confirm("Are you sure you want to delete this event?")) {
-                this.$http.delete('deleteusers').then((response) => {
+                this.$http.delete('/deleteusers/' +user.id, user).then((response) => {
                     // success callback
-                    this.users.$remove(index);
+                    this.users.$remove(user);
             }, (response) => {
                     // error callback
                     //console.log(err);
                 });
 
             }
-        }*/
+        }
 
    }
 });

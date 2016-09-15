@@ -17,5 +17,5 @@ Route::get('/', function () {
 
 Route::get('registration', 'RegistrationController@index');
 Route::get('users', 'RegistrationController@users');
-Route::post('deleteusers', 'RegistrationController@delete');
-Route::post('/create', 'RegistrationController@insert');
+Route::delete('deleteusers/{id}', 'RegistrationController@delete');
+Route::post('create', 'RegistrationController@insert');

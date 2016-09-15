@@ -52,7 +52,7 @@
     <!-- show the events -->
     <div class="col-sm-6">
         <div class="list-group">
-            <a href="#" class="list-group-item" v-for="user in users" track-by="$index" >
+            <a href="#" class="list-group-item" v-for="user in users">
                 <h4 class="list-group-item-heading">
                     <i class="glyphicon glyphicon-bullhorn"></i>
                     @{{ user.name }}
@@ -62,11 +62,11 @@
                     <i class="glyphicon glyphicon-calendar"></i>
                     @{{ user.email }}
                 </h5>
-                <button class="btn btn-xs btn-danger" v-on:click="deleteUser()">Delete</button>
+                <button class="btn btn-xs btn-danger" v-on:click="deleteUser(user)">Delete</button>
             </a>
 
         </div>
-
+        
 
     </div>
 </div> {{-- /#users --}}

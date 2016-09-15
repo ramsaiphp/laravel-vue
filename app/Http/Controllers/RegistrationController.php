@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use DB;
 use App\Http\Requests;
 
 class RegistrationController extends Controller
@@ -17,8 +17,8 @@ class RegistrationController extends Controller
     }
 
     public function users(){
-        $user = \DB::table('users')->get();
-        return $user;
+        $users = \DB::table('users')->get();
+        return $users;
 
     }
 
@@ -26,7 +26,7 @@ class RegistrationController extends Controller
         $data = [
             'name' => \Request::get('name'),
             'email'=> \Request::get('email'),
-            'password'=> \Request::get('password')
+            'password'=> bcrypt(\Request::get('password'))
         ];
 
         //dd($data);
@@ -36,6 +36,8 @@ class RegistrationController extends Controller
     }
 
     public function delete($id){
-
-        dd('hi');    }
+        //$id = $request->get('id');
+        DB::table('users')->where('id',$id)->delete();
+    
+    }
 }

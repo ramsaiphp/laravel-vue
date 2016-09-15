@@ -11812,20 +11812,21 @@ new _vue2.default({
             this.name = '';
             this.email = '';
             this.password = '';
-        }
+        },
 
-        /*        deleteUser: function(index) {
-                    if(confirm("Are you sure you want to delete this event?")) {
-                        this.$http.delete('deleteusers').then((response) => {
-                            // success callback
-                            this.users.$remove(index);
-                    }, (response) => {
-                            // error callback
-                            //console.log(err);
-                        });
-        
-                    }
-                }*/
+        deleteUser: function deleteUser(user) {
+            var _this2 = this;
+
+            if (confirm("Are you sure you want to delete this event?")) {
+                this.$http.delete('/deleteusers/' + user.id, user).then(function (response) {
+                    // success callback
+                    _this2.users.$remove(user);
+                }, function (response) {
+                    // error callback
+                    //console.log(err);
+                });
+            }
+        }
 
     }
 });
